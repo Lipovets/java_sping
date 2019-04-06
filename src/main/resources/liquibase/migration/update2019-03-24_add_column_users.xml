@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+        logicalFilePath="update2019-03-24_add_column_users.xml">
+
+    <changeSet id="update2019-03-24_add_column_users_02" author="lypivets" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="users"/>
+        </preConditions>
+
+        <addColumn tableName="users">
+            <column name="id_role" type="BIGINT"/>
+        </addColumn>
+
+    </changeSet>
+
+    <changeSet id="update2019-03-24_add_column_users_03" author="lypivets" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="users"/>
+        </preConditions>
+        <sql>
+            UPDATE users set id_role=1
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
